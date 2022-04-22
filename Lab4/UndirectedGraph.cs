@@ -167,7 +167,26 @@ namespace Lab4
 				//     if node is white
 				//        connectedComponents++
 				//        explore the neighbors
-				//        
+				//
+				foreach(Node node in Nodes)
+                {
+					if(node.Color == Color.White)
+                    {
+						connectedComponents++;
+
+						foreach(Node neighbor in node.Neighbors)
+                        {
+							 if(neighbor.Color == Color.White)
+                            {
+								if(neighbor != node)
+                                {
+									connectedComponents++;
+                                }
+                            }
+                        }
+							
+                    }
+                }
 
 
 
@@ -186,10 +205,16 @@ namespace Lab4
 			Dictionary<Node, Node> predecessorDictionary = new Dictionary<Node, Node>();
 
 			// foreach v in V do
+			
 			//    pred[v] = -1
 			//    color[v] = white
 			//    
 			// dfsVisit(startingNode)
+
+			foreach(Node node in Nodes)
+            {
+				predecessorDictionary.Add(node, node.white)
+            }
 			
 
 			return predecessorDictionary;
@@ -203,8 +228,16 @@ namespace Lab4
 			//    if color[v] = white then
 			//        pred[v] = node
 			//        dfsVisit(v, pred)
-            // color[node] = black
+			// color[node] = black
 
+			node.Color = Color.Gray;
+			foreach(Node neighbor in node.Neighbors)
+            {
+				if (neighbor.Color == Color.White)
+                {
+					//pred = 
+                }
+            }
 
 		}
 
@@ -220,10 +253,13 @@ namespace Lab4
 			Queue<Node> queue = new Queue<Node>();
 
 			// init
+
 			// foreach v in V do
 			//    pred[v] = -1
 			//    dist[v] = infinity
 			//    color[v] = white
+
+			foreach()
 
 			// startingNode.color = gray
 			// dist[startingNode] = 0
