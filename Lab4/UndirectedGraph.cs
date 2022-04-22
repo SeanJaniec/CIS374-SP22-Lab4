@@ -213,8 +213,10 @@ namespace Lab4
 
 			foreach(Node node in Nodes)
             {
-				predecessorDictionary.Add(node, node.white)
+				predecessorDictionary[node].Equals(-1);
+				node.Color = Color.White;
             }
+			DFSVisit(startingNode, predecessorDictionary);
 			
 
 			return predecessorDictionary;
@@ -235,9 +237,13 @@ namespace Lab4
             {
 				if (neighbor.Color == Color.White)
                 {
-					//pred = 
+					pred[neighbor].Equals(neighbor);
+					DFSVisit(neighbor, pred);
                 }
             }
+			node.Color = Color.Black;
+
+
 
 		}
 
@@ -259,7 +265,11 @@ namespace Lab4
 			//    dist[v] = infinity
 			//    color[v] = white
 
-			foreach()
+			foreach(Node node in Nodes)
+            {
+				predecessorDictionary[node].Equals(-1);
+				
+            }
 
 			// startingNode.color = gray
 			// dist[startingNode] = 0
